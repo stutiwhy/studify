@@ -1,0 +1,2 @@
+# studify
+Student Management System
