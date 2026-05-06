@@ -10,8 +10,8 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/dashboard")
-@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:5173"}) // ✅ Allow both dev servers
-public class DashboardController {
+@CrossOrigin(origins = "*")
+    public class DashboardController {
 
     @Autowired
     private StudentRepository studentRepository;
@@ -38,7 +38,7 @@ public class DashboardController {
         public void setOther(long other) { this.other = other; }
     }
 
-    // ✅ 1. Basic Dashboard Stats
+    // Basic Dashboard Stats
     @GetMapping("/stats")
     public ResponseEntity<Map<String, Object>> getBasicStats() {
         long totalStudents = studentRepository.count();
@@ -55,21 +55,21 @@ public class DashboardController {
         return ResponseEntity.ok(stats);
     }
 
-    // ✅ 2. Students by Department
+    // Students by Department
     @GetMapping("/department-breakdown")
     public ResponseEntity<List<Map<String, Object>>> getStudentsByDepartment() {
         List<Map<String, Object>> deptData = studentRepository.countStudentsByDepartment();
         return ResponseEntity.ok(deptData);
     }
 
-    // ✅ 3. Students by Division
+    // Students by Division
     @GetMapping("/division-breakdown")
     public ResponseEntity<List<Map<String, Object>>> getStudentsByDivision() {
         List<Map<String, Object>> divData = studentRepository.countStudentsByDivision();
         return ResponseEntity.ok(divData);
     }
 
-    // ✅ 4. Gender Distribution by Department
+    // Gender Distribution by Department
     @GetMapping("/gender-distribution")
     public ResponseEntity<List<DepartmentGenderStats>> getGenderDistributionByDepartment() {
         List<Map<String, Object>> rawData = studentRepository.findGenderDistributionByDepartment();
@@ -96,7 +96,7 @@ public class DashboardController {
         return ResponseEntity.ok(new ArrayList<>(statsMap.values()));
     }
 
-    // ✅ 5. Top 5 Recent Enrollments
+    // Top 5 Recent Enrollments
     @GetMapping("/recent-enrollments")
     public ResponseEntity<List<Student>> getRecentEnrollments() {
         List<Student> recentStudents = studentRepository.findTop5ByOrderByEnrollmentDateDesc();
