@@ -9,32 +9,32 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:5173"}) // ✅ Allow both dev servers
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired
     private UserRepository userRepository;
 
-    // ✅ 1. Get all users
+    // Get all users
     @GetMapping
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    // ✅ 2. Get user by ID
+    // Get user by ID
     @GetMapping("/{id}")
     public User getUserById(@PathVariable Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
     }
 
-    // ✅ 3. Create new user
+    // create new user
     @PostMapping
     public User createUser(@RequestBody User newUser) {
         return userRepository.save(newUser);
     }
 
-    // ✅ 4. Update user (profile editing, etc.)
+    // Update user (profile editing, etc.)
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
         User user = userRepository.findById(id)
@@ -55,7 +55,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    // ✅ 5. Delete user by ID
+    // Delete user by ID
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         if (!userRepository.existsById(id)) {
@@ -64,13 +64,13 @@ public class UserController {
         userRepository.deleteById(id);
     }
 
-    // ✅ 6. Count total users (for dashboard)
+    // Count total users (for dashboard)
     @GetMapping("/count")
     public long getUserCount() {
         return userRepository.count();
     }
 
-    // ✅ 7. Optional: Find user by email
+    // Optional: Find user by email
     @GetMapping("/email/{email}")
     public User getUserByEmail(@PathVariable String email) {
         return userRepository.findByEmail(email)
