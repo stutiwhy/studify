@@ -3,7 +3,7 @@
 // ==========================
 
 // Base backend URL
-const API_BASE_URL = `http://localhost:8081/api`;
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8081/api";
 
 // ==========================
 // Helper function to make API calls
