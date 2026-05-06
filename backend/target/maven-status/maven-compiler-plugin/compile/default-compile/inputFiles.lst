@@ -1,0 +1,9 @@
+/home/stu/Downloads/Studify-main/backend/src/main/java/com/sms/StudentManagementApplication.java
+/home/stu/Downloads/Studify-main/backend/src/main/java/com/sms/controller/AuthController.java
+/home/stu/Downloads/Studify-main/backend/src/main/java/com/sms/controller/DashboardController.java
+/home/stu/Downloads/Studify-main/backend/src/main/java/com/sms/controller/StudentController.java
+/home/stu/Downloads/Studify-main/backend/src/main/java/com/sms/controller/UserController.java
+/home/stu/Downloads/Studify-main/backend/src/main/java/com/sms/entity/Student.java
+/home/stu/Downloads/Studify-main/backend/src/main/java/com/sms/entity/User.java
+/home/stu/Downloads/Studify-main/backend/src/main/java/com/sms/repository/StudentRepository.java
+/home/stu/Downloads/Studify-main/backend/src/main/java/com/sms/repository/UserRepository.java

@@ -1,0 +1,7 @@
+com\sms\StudentManagementApplication.class
+com\sms\controller\StudentController.class
+com\sms\controller\AuthController.class
+com\sms\entity\Student.class
+com\sms\repository\UserRepository.class
+com\sms\entity\User.class
+com\sms\repository\StudentRepository.class
